@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyección en Vivo — CineVota</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="background: var(--proj-bg);">
+
+<div class="projection-body">
+  <div class="proj-header">
+    <div class="proj-logo">
+      <h1>🎬 CineVota</h1>
+      <p>Resultados Oficiales en Vivo</p>
+    </div>
+    <div class="proj-total">
+      <div class="proj-total-lbl">Total de Votos</div>
+      <div class="proj-total-num pulse" id="p-total">0</div>
+    </div>
+  </div>
+  
+  <div class="proj-grid" id="p-grid">
+    <!-- Bars injected via proyeccion.js -->
+  </div>
+</div>
+
+<script src="proyeccion.js"></script>
+</body>
+</html>

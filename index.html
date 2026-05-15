@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Votación Kiosko — CineVota</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══ SCREEN 2 — VOTACIÓN KIOSKO ══ -->
+<div class="screen active" id="screen-vote">
+  <div class="site-header">
+    <div class="hd hd1"></div><div class="hd hd2"></div><div class="hd hd3"></div>
+    <div class="hdr-in">
+      <div class="hdr-logo">
+        <div class="hdr-icon">🎬</div>
+        <div><h1>CineVota</h1><p>Terminal de Votación</p></div>
+      </div>
+      <div class="hdr-right">
+        <div class="voter-chip">👆 Toca para votar</div>
+      </div>
+    </div>
+    <div class="hdr-line"></div>
+  </div>
+  <div class="vote-body-kiosk">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--g900); margin-bottom: 0.5rem;">Festival de Cortometrajes</h2>
+      <div class="sec-label" style="justify-content: center;">Selecciona el que más te haya gustado</div>
+    </div>
+    <div class="cards-grid" id="cards-grid"></div>
+  </div>
+</div>
+
+<!-- ══ SCREEN 3 — GRACIAS ══ -->
+<div class="screen" id="screen-thanks">
+  <div class="site-header">
+    <div class="hd hd1"></div><div class="hd hd2"></div><div class="hd hd3"></div>
+    <div class="hdr-in" style="justify-content: center;">
+      <div class="hdr-logo">
+        <div class="hdr-icon">🎬</div>
+        <div><h1>CineVota</h1><p>Terminal de Votación</p></div>
+      </div>
+    </div>
+    <div class="hdr-line"></div>
+  </div>
+  <div class="thanks-body">
+    <div class="thanks-icon">🎉</div>
+    <div class="thanks-title">¡Gracias por tu voto!</div>
+    <div class="thanks-sub">Tu voto anónimo fue registrado exitosamente. Votaste por:</div>
+    <div class="thanks-chip" id="t-course"></div>
+    <svg width="64" height="64" viewBox="0 0 64 64" style="margin-bottom:.4rem">
+      <circle cx="32" cy="32" r="26" fill="none" stroke="#EBEBEB" stroke-width="5"/>
+      <circle id="ring" cx="32" cy="32" r="26" fill="none" stroke="#C41E3A" stroke-width="5"
+        stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="0"
+        transform="rotate(-90 32 32)" style="transition:stroke-dashoffset 1s linear"/>
+    </svg>
+    <div class="thanks-cd">Siguiente voto en <span id="cd-num">5</span> segundos…</div>
+    <button class="thanks-nxt" onclick="resetForNext()">Siguiente voto &nbsp;→</button>
+  </div>
+</div>
+
+<!-- ══ MODAL ══ -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <span class="m-emoji">🗳️</span>
+    <div class="m-title">Confirmar voto</div>
+    <div class="m-body" style="font-size: 1.1rem;">
+      ¿Estás seguro de que deseas votar por<br>
+      <span class="m-course" id="m-course" style="font-size: 1.3rem;"></span>?<br>
+      <span class="m-warn" style="font-size: 0.85rem;">⚠️ Esta acción no puede deshacerse</span>
+    </div>
+    <div class="m-btns">
+      <button class="btn-no" onclick="closeModal()">Cancelar</button>
+      <button class="btn-yes" onclick="confirmVote()">✓ &nbsp;Sí, confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
